@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>anyWeather</title>
+        <link href="styles.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="container">
+            <img src="images/anyWeather_logo.png" alt="anyWeather Logo" id="logo">
+            <div id="top-bar">
+                <input id="user-input" required placeholder="Enter a Location...">
+                <button id="search-button"><img src="images/search_button.png" alt="Search button"></button>
+                <h6>Click on a measurement to change its unit.</h6>
+            </div>
+            <div id="mid-bar">
+                <img src="images/weather_icons/01n.png" title="Weather Now" alt="Current Weather Icon" id="weather-img">
+                <h1 id="current-temp">22°C</h1>
+                <h2 id="current-time">Auckland | 17:00</h2>
+                <div id="arrow-bar">
+                    <a href="7days.html"><img src="images/right.png"></a>
+                </div>
+            </div>
+            <div id="low-bar">
+                <div id="precip" class="col">
+                    <img src="images/precip_icon.png" alt="Precipiation Icon" id="icon-img">
+                    <p id="current-precip">16%</p>
+                    <p id="precip-text">Precipitation</p>
+                    <div class="tooltip-container">
+                        <img src="images/info_icon.svg" alt="Information Icon" id="info-img">
+                        <span class="tooltip-text">Amount of rain/snow in the last hour.</span>
+                    </div>
+                </div>
+                <div id="humidity" class="col">
+                    <img src="images/humidity_icon_white.png" alt="Humidity Icon" id="icon-img">
+                    <p id="current-humidity">60%</p>
+                    <p id="humidity-text">Humidity</p>
+                    <div class="tooltip-container">
+                        <img src="images/info_icon.svg" alt="Information Icon" id="info-img">
+                        <span class="tooltip-text">The percentage of moisture in the air based on the current temperature.</span>
+                    </div>
+                </div>
+                <div id="wind-speed" class="col">
+                    <img src="images/wind_icon_white.png" alt="Wind Icon" id="icon-img">
+                    <p id="current-wind">31 kph</p>
+                    <p id="wind-text">Windspeed</p>
+                    <div class="tooltip-container">
+                        <img src="images/info_icon.svg" alt="Information Icon" id="info-img">
+                        <span class="tooltip-text">Wind speed in kilometers per hour.</span>
+                    </div>
+                </div>
+            </div>            
+            <br>
+            <!--Pagination Control-->
+            <div id="pagination-controls">
+                <a href="index.html" class="dot active"></a>
+                <a href="7days.html" class="dot"></a>
+                <a href="today.html" class="dot"></a>
+            </div>
+            <h6 id="copyright">Copyright | © Vikram Varadarajan 2024</h6>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>
