@@ -6,7 +6,7 @@
 }
 
 /* Pagination Controls */
-#pagination-controls {
+/*#pagination-controls {
     display: flex;
     justify-content: center;
     margin: 20px 0;
@@ -30,8 +30,65 @@
 
 .dot:hover {
     background-color: #555;
+}*/
+
+#precip-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
 }
 
+#rain img, #snow img {
+    width: 30px;
+    opacity: 0.8;
+    animation: fall 3s linear 3;
+    display: none;
+}
+
+#thunder img {
+    width: 60px;
+    opacity: 0.8;
+    animation: fall 3s linear 3;
+    display: none;
+}
+
+#r1, #s1, #t1 {
+    margin: 0 0 0 15px;
+}
+
+#r2, #s2, #t2 {
+    margin: 0 0 0 400px;
+}
+
+#r3, #s3, #t3 {
+    margin: 0 0 0 150px;
+}
+
+#r4, #s4, #t4 {
+    margin: 0 0 0 340px;
+}
+
+#r5, #s5, #t5 {
+    margin: 0 0 0 75px;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(150px);
+        opacity: 0;
+    }
+}
 
 #search-button img {
     width: 35px;
@@ -74,17 +131,14 @@ body {
 
 #container {
     text-align: center;
-    /*background: linear-gradient(15deg, #87CEEB, #a6a39f);*/
-    /*background: linear-gradient(215deg, #222d5a, #09010c); /*night*/
-    /*background: linear-gradient(15deg, #FFA732, #4a657d); /*sunset*/
-    /*background: linear-gradient(15deg, #87CEFA, #ffe341); /*sunny*/
-    background: linear-gradient(15deg, #FFA732, #365b97); /*sunrise*/
+    background: linear-gradient(15deg, #87CEEB, #a6a39f);
     max-width: 470px;
     color: #fff;
-    margin: 100px 0 auto;
+    margin: 27.5px 27.5px;
     border-radius: 20px;
     padding: 15px 35px 40px 35px;
-    margin-left: 100px
+    overflow: hidden;
+    position: relative;
 }
 
 #current-temp {
@@ -92,6 +146,10 @@ body {
 }
 
 #current-wind {
+    cursor: pointer;
+}
+
+#current-precip {
     cursor: pointer;
 }
 
@@ -174,10 +232,10 @@ body {
     font-weight: 100;
 }
 
-#arrow-bar {
+/*#arrow-bar {
     margin-bottom: -50px;
     padding: 20px;
-}
+}*/
 
 #mid-bar h1 {
     font-size: 80px;
@@ -207,5 +265,11 @@ body {
 }
 
 #mid-bar, #low-bar, #pagination-controls {
+    display: none;
+}
+
+#error {
+    margin-top: 15px;
+    text-align: left;
     display: none;
 }
