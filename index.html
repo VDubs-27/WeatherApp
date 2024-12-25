@@ -7,24 +7,50 @@
     </head>
     <body>
         <div id="container">
+            <div id="precip-container">
+                <div id="rain">
+                    <img src="images/raindrop.png" id="r1">
+                    <img src="images/raindrop.png" id="r2">
+                    <img src="images/raindrop.png" id="r3">
+                    <img src="images/raindrop.png" id="r4">
+                    <img src="images/raindrop.png" id="r5">
+                </div>
+                <div id="snow">
+                    <img src="images/snow.png" id="s1">
+                    <img src="images/snow.png" id="s2">
+                    <img src="images/snow.png" id="s3">
+                    <img src="images/snow.png" id="s4">
+                    <img src="images/snow.png" id="s5">
+                </div>
+                <div id="thunder">
+                    <img src="images/thunder.png" id="t1">
+                    <img src="images/thunder.png" id="t2">
+                    <img src="images/thunder.png" id="t3">
+                    <img src="images/thunder.png" id="t4">
+                    <img src="images/thunder.png" id="t5">
+                </div>
+            </div>
             <img src="images/anyWeather_logo.png" alt="anyWeather Logo" id="logo">
             <div id="top-bar">
                 <input id="user-input" required placeholder="Enter a Location...">
                 <button id="search-button"><img src="images/search_button.png" alt="Search button"></button>
                 <h6>Click on a measurement to change its unit.</h6>
             </div>
+            <div id="error">
+                <p>Invalid location, recheck spelling.</p>
+            </div>
             <div id="mid-bar">
                 <img src="images/weather_icons/01n.png" title="Weather Now" alt="Current Weather Icon" id="weather-img">
-                <h1 id="current-temp">22°C</h1>
-                <h2 id="current-time">Auckland | 17:00</h2>
-                <div id="arrow-bar">
+                <h1 id="current-temp">--°C</h1>
+                <h2 id="current-time">----- | XX:XX</h2>
+                <!--<div id="arrow-bar">
                     <a href="7days.html"><img src="images/right.png"></a>
-                </div>
+                </div>-->
             </div>
             <div id="low-bar">
                 <div id="precip" class="col">
                     <img src="images/precip_icon.png" alt="Precipiation Icon" id="icon-img">
-                    <p id="current-precip">16%</p>
+                    <p id="current-precip">--mm</p>
                     <p id="precip-text">Precipitation</p>
                     <div class="tooltip-container">
                         <img src="images/info_icon.svg" alt="Information Icon" id="info-img">
@@ -33,7 +59,7 @@
                 </div>
                 <div id="humidity" class="col">
                     <img src="images/humidity_icon_white.png" alt="Humidity Icon" id="icon-img">
-                    <p id="current-humidity">60%</p>
+                    <p id="current-humidity">--%</p>
                     <p id="humidity-text">Humidity</p>
                     <div class="tooltip-container">
                         <img src="images/info_icon.svg" alt="Information Icon" id="info-img">
@@ -42,7 +68,7 @@
                 </div>
                 <div id="wind-speed" class="col">
                     <img src="images/wind_icon_white.png" alt="Wind Icon" id="icon-img">
-                    <p id="current-wind">31 kph</p>
+                    <p id="current-wind">-- kph</p>
                     <p id="wind-text">Windspeed</p>
                     <div class="tooltip-container">
                         <img src="images/info_icon.svg" alt="Information Icon" id="info-img">
