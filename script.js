@@ -108,7 +108,7 @@ async function checkWeather() {
             document.getElementById("t5").style.display = "none";
         }
         else {
-            document.getElementById("current-precip").innerHTML = "0mm";
+            document.getElementById("current-precip").innerHTML = "Rain: " + mmPrecip + "mm";
             document.getElementById("r1").style.display = "none";
             document.getElementById("r2").style.display = "none";
             document.getElementById("r3").style.display = "none";
