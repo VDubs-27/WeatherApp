@@ -2,8 +2,12 @@ let celsiusTemp;
 let kphWind;
 let mmPrecip;
 let weatherIcon;
+let lat;
+let lon;
+let placeName;
 const container = document.getElementById("container");
 const userInput = document.getElementById("user-input");
+
 const searchBtn = document.getElementById("search-button");
 const currentTemp = document.getElementById("current-temp");
 const windspeed = document.getElementById("current-wind");
@@ -12,6 +16,8 @@ const precip = document.getElementById("current-precip");
 const apiKey = "f85370619c6ea62c3477886ea6b559b9";
 const tempUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+const apiPlaces = "AIzaSyC0irtKrHXTrADYt--eOuaJZtbrbQ8IbgM";
 
 const weatherGradients = {
     regular: "linear-gradient(15deg, #87CEEB, #a6a39f)",
@@ -22,8 +28,8 @@ const weatherGradients = {
     clouds: "linear-gradient(to bottom, #D3D3D3, #808080)"
 };
 
-async function checkWeather() {
-    const response = await fetch(apiUrl + `&appid=${apiKey}`);
+async function checkWeather(apiUrl) {
+    const response = await fetch(apiUrl);
     var data = await response.json();
 
     if (response.status == 404) {
@@ -52,7 +58,18 @@ async function checkWeather() {
         document.getElementById("weather-img").src = weatherIcon;
         document.getElementById("weather-img").title = weatherInfo;
         document.getElementById("current-temp").innerHTML = celsiusTemp.toFixed(1) + "°C";
-        document.getElementById("current-time").innerHTML = data.name + " | " + data.sys.country;
+        if (apiUrl.includes(`lat`)) {
+            let newName = userInput.value.split(",");
+            newName = newName[0].split(` - `);
+            console.log(newName);
+            placeName = newName[0];
+            document.getElementById("current-time").innerHTML = placeName + " | " + data.sys.country;
+        }
+        else {
+            placeName = data.name;
+            document.getElementById("current-time").innerHTML = placeName + " | " + data.sys.country;
+        }
+        userInput.value = "";
 
         if (data.weather[0].icon.includes("11")) {
             document.getElementById("current-precip").innerHTML = "Rain: " + mmPrecip + "mm";
@@ -197,19 +214,72 @@ precip.addEventListener("click", () => {
     }
 });
 
+function initMap() {
+    var searchInput = document.getElementById('user-input');
+    if (!searchInput) {
+        console.error('User input element not found.');
+        return;
+    }
+
+    var autocomplete = new google.maps.places.Autocomplete(searchInput, {
+        types: ['geocode']
+    });
+
+    autocomplete.addListener('place_changed', function () {
+        var place = autocomplete.getPlace();
+        if (place.geometry && place.geometry.location) {
+            lat = place.geometry.location.lat();
+            lon = place.geometry.location.lng();
+
+            console.log('Selected place:', place.formatted_address);
+            console.log('Latitude:', lat);
+            console.log('Longitude:', lon);
+
+            apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`;
+
+        }
+    });
+}
+
 searchBtn.addEventListener("click", () => {
-    apiUrl += userInput.value;
-    console.log(apiUrl);
-    checkWeather();
-    apiUrl = tempUrl;
+    if (!userInput.value) {
+        alert("Please enter or select a location.");
+        return;
+    }
+    else if (lat && lon) {
+        apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`;
+        console.log(apiUrl);
+        checkWeather(apiUrl);
+        lat = undefined;
+        lon = undefined;
+    }
+    else if (userInput.value) {
+        apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+        apiUrl += userInput.value;
+        apiUrl += `&appid=${apiKey}`;
+        console.log(apiUrl);
+        checkWeather(apiUrl);
+        apiUrl = tempUrl;
+    }
 });
 
 userInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-        apiUrl += userInput.value;
-        console.log(apiUrl);
-        checkWeather();
-        apiUrl = tempUrl;
+        if (lat && lon) {
+            apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`;
+            console.log(apiUrl);
+            checkWeather(apiUrl);
+            lat = undefined;
+            lon = undefined;
+        }
+        else if (userInput.value) {
+            apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+            apiUrl += userInput.value;
+            apiUrl += `&appid=${apiKey}`;
+            console.log(apiUrl);
+            checkWeather(apiUrl);
+            apiUrl = tempUrl;
+        }
     }
 });
 
