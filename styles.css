@@ -1,0 +1,279 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Pagination Controls */
+/*#pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.dot.active {
+    background-color: #5664ff;
+    cursor: default;
+}
+
+.dot:hover {
+    background-color: #555;
+}*/
+
+#precip-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#rain img, #snow img {
+    width: 30px;
+    opacity: 0.8;
+    animation: fall 3s linear 3;
+    display: none;
+}
+
+#thunder img {
+    width: 60px;
+    opacity: 0.8;
+    animation: fall 3s linear 3;
+    display: none;
+}
+
+#r1, #s1, #t1 {
+    margin: 0 0 0 15px;
+}
+
+#r2, #s2, #t2 {
+    margin: 0 0 0 400px;
+}
+
+#r3, #s3, #t3 {
+    margin: 0 0 0 150px;
+}
+
+#r4, #s4, #t4 {
+    margin: 0 0 0 340px;
+}
+
+#r5, #s5, #t5 {
+    margin: 0 0 0 75px;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(150px);
+        opacity: 0;
+    }
+}
+
+#search-button img {
+    width: 35px;
+}
+
+#top-bar {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    justify-content: center;
+}
+
+#top-bar input {
+    border-radius: 30px;
+    height: 25px;
+    border: 0;
+    outline: 0;
+    color: #555;
+    padding: 10px 25px;
+    height: 40px;
+    font-size: 18px;
+    margin-right: 16px;
+}
+
+#top-bar button {
+    border-radius: 30px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+#top-bar button:hover {
+    background-color: #777777;
+}
+
+body {
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#container {
+    text-align: center;
+    background: linear-gradient(15deg, #87CEEB, #a6a39f);
+    max-width: 470px;
+    color: #fff;
+    margin: -40px 0 0 0;
+    border-radius: 20px;
+    padding: 15px 35px 40px 35px;
+    overflow: hidden;
+    position: relative;
+}
+
+#current-temp {
+    cursor: pointer;
+}
+
+#current-wind {
+    cursor: pointer;
+}
+
+#current-precip {
+    cursor: pointer;
+}
+
+#copyright h6 {
+    margin-bottom: -50px;
+}
+
+#logo {
+    max-width: 300px;
+}
+
+#info-img {
+    max-width: 20px;
+    margin-top: 10px;
+    opacity: 75%;
+}
+
+#info-img:hover {
+    cursor: pointer;
+    opacity: 100%;
+}
+
+.tooltip:hover::after {
+    content: attr(data-text);
+}
+
+#icon-img {
+    max-width: 50px;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip-container .tooltip-text {
+    visibility: hidden;
+    opacity: 0%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 10px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 100%;
+}
+
+
+#weather-img {
+    width: 170px;
+    margin-top: 30px;
+}
+
+#small-weather-img {
+    width: 35px;
+    margin: 0 0 -5px 0;
+}
+
+#concise-bar {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 35px;
+    margin-top: 20px;
+}
+
+#concise-bar h3 {
+    font-size: 25px;
+    font-weight: 100;
+}
+
+/*#arrow-bar {
+    margin-bottom: -50px;
+    padding: 20px;
+}*/
+
+#mid-bar h1 {
+    font-size: 80px;
+    font-weight: 500;
+}
+
+#mid-bar h2 {
+    font-size: 35px;
+    font-weight: 400;
+}
+
+#top-bar h6 {
+    margin: 0 0 0 14px;
+    font-weight: 400;
+    font-size: 9px;
+}
+
+#low-bar {
+    display: flex;
+    margin-top: 60px;
+}
+
+.col {
+    align-items: center;
+    text-align: center;
+    padding: 0 25px;
+}
+
+#mid-bar, #low-bar, #pagination-controls {
+    display: none;
+}
+
+#error {
+    margin-top: 15px;
+    text-align: left;
+    display: none;
+}

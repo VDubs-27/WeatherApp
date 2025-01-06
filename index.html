@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>anyWeather</title>
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <link rel="icon" type="image/jpg" href="images/favicon.png"/>
+        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0irtKrHXTrADYt--eOuaJZtbrbQ8IbgM&libraries=places&callback=initMap"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="precip-container">
+                <div id="rain">
+                    <img src="images/raindrop.png" id="r1">
+                    <img src="images/raindrop.png" id="r2">
+                    <img src="images/raindrop.png" id="r3">
+                    <img src="images/raindrop.png" id="r4">
+                    <img src="images/raindrop.png" id="r5">
+                </div>
+                <div id="snow">
+                    <img src="images/snow.png" id="s1">
+                    <img src="images/snow.png" id="s2">
+                    <img src="images/snow.png" id="s3">
+                    <img src="images/snow.png" id="s4">
+                    <img src="images/snow.png" id="s5">
+                </div>
+                <div id="thunder">
+                    <img src="images/thunder.png" id="t1">
+                    <img src="images/thunder.png" id="t2">
+                    <img src="images/thunder.png" id="t3">
+                    <img src="images/thunder.png" id="t4">
+                    <img src="images/thunder.png" id="t5">
+                </div>
+            </div>
+            <a href="index.html"><img src="images/anyWeather_logo.png" alt="anyWeather Logo" id="logo"></a>
+            <div id="top-bar">
+                <input id="user-input" required placeholder="Enter a Location...">
+                <button id="search-button"><img src="images/search_button.png" alt="Search button"></button>
+                <h6>Click on a measurement to change its unit.</h6>
+            </div>
+            <div id="error">
+                <p>Invalid location, recheck spelling.</p>
+            </div>
+            <div id="mid-bar">
+                <img src="images/weather_icons/01n.png" title="Weather Now" alt="Current Weather Icon" id="weather-img">
+                <h1 id="current-temp">--°C</h1>
+                <h2 id="current-time">----- | XX:XX</h2>
+                <!--<div id="arrow-bar">
+                    <a href="7days.html"><img src="images/right.png"></a>
+                </div>-->
+            </div>
+            <div id="low-bar">
+                <div id="precip" class="col">
+                    <img src="images/precip_icon.png" alt="Precipiation Icon" id="icon-img">
+                    <p id="current-precip">--mm</p>
+                    <p id="precip-text">Precipitation</p>
+                    <div class="tooltip-container">
+                        <img src="images/info_icon.svg" alt="Information Icon" id="info-img">
+                        <span class="tooltip-text">Amount of rain/snow in the last hour.</span>
+                    </div>
+                </div>
+                <div id="humidity" class="col">
+                    <img src="images/humidity_icon_white.png" alt="Humidity Icon" id="icon-img">
+                    <p id="current-humidity">--%</p>
+                    <p id="humidity-text">Humidity</p>
+                    <div class="tooltip-container">
+                        <img src="images/info_icon.svg" alt="Information Icon" id="info-img">
+                        <span class="tooltip-text">The percentage of moisture in the air based on the current temperature.</span>
+                    </div>
+                </div>
+                <div id="wind-speed" class="col">
+                    <img src="images/wind_icon_white.png" alt="Wind Icon" id="icon-img">
+                    <p id="current-wind">-- kph</p>
+                    <p id="wind-text">Windspeed</p>
+                    <div class="tooltip-container">
+                        <img src="images/info_icon.svg" alt="Information Icon" id="info-img">
+                        <span class="tooltip-text">Wind speed in kilometers per hour.</span>
+                    </div>
+                </div>
+            </div>            
+            <br>
+            <!--Pagination Control-->
+            <div id="pagination-controls">
+                <a href="index.html" class="dot active"></a>
+                <a href="7days.html" class="dot"></a>
+                <a href="today.html" class="dot"></a>
+            </div>
+            <h6 id="copyright">Copyright | © Vikram Varadarajan 2025 | Version 1.2.0</h6>
+        </div>  
+    </body>
+    <script src="script.js"></script>
+</html>

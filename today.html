@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>anyWeather - Today by hour</title>
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <link rel="icon" type="image/jpg" href="images/favicon.png"/>
+    </head>
+    <body>
+        <div id="container">
+            <a href="index.html"><img src="images/anyWeather_logo.png" alt="anyWeather Logo" id="logo"></a>
+            <div id="top-bar">
+                <input id="user-input" required placeholder="Enter a Location...">
+                <button id="search-button"><img src="images/search_button.png" alt="Search button"></button>
+            </div>
+            <div id="mid-bar">
+                <div id="concise-bar">
+                    <img src="images/night/fine.png" alt="Current Weather Icon" id="small-weather-img">
+                    <h3 id="summary"> | Auckland | 22°C | 17:00</h3>
+                </div>
+                <div id="arrow-bar">
+                    <a href="7days.html"><img src="images/left.png"></a>
+                </div>
+            </div>
+            <div id="low-bar">
+            </div>
+            <!--Pagination Control-->
+            <div id="pagination-controls">
+                <a href="index.html" class="dot"></a>
+                <a href="7days.html" class="dot"></a>
+                <a href="today.html" class="dot active"></a>
+            </div>
+            <h6>Copyright | © Vikram Varadarajan 2024</h6>
+        </div>
+    </body>
+    <script href="script.js"></script>
+</html>
