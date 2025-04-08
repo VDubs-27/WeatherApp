@@ -17,7 +17,7 @@ const apiKey = "f85370619c6ea62c3477886ea6b559b9";
 const tempUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
-const apiPlaces = "AIzaSyC0irtKrHXTrADYt--eOuaJZtbrbQ8IbgM";
+const apiPlaces = "AIzaSyC9taE0O4I2gUQ65VGKaWWx_zwWPgMQiPw";
 
 const weatherGradients = {
     regular: "linear-gradient(15deg, #87CEEB, #a6a39f)",
